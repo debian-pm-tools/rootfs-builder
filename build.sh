@@ -4,12 +4,12 @@ export ARCH=armhf
 
 # configure the live-build
 lb config \
-        --mode ubuntu \
-        --distribution xenial \
+        --mode debian \
+        --distribution stretch \
         --binary-images none \
         --memtest none \
         --source false \
-        --archive-areas "main restricted universe multiverse" \
+        --archive-areas "main contrib non-free" \
         --apt-source-archives true \
         --architectures armhf \
         --bootstrap-qemu-arch armhf \
@@ -17,7 +17,7 @@ lb config \
         --linux-flavours none \
         --bootloader none \
         --initramfs-compression lzma \
-        --initsystem none \
+        --initsystem systemd \
         --chroot-filesystem plain \
         --apt-options "--yes -o Debug::pkgProblemResolver=true" \
         --compression gzip \
@@ -26,7 +26,10 @@ lb config \
         --linux-packages=none \
         --backports true \
         --apt-recommends false \
-        --initramfs=none
+        --initramfs=none \
+        --debian-installer false \
+        --debootstrap-options="--include=apt-transport-https" \
+        --firmware-chroot false
 
 # Copy the customization
 cp -rf customization/* config/
