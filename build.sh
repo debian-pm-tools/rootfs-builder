@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export ARCH=armhf
+export mirror="https://deb.debian.org/debian"
 
 # configure the live-build
 lb config \
@@ -29,8 +30,11 @@ lb config \
         --initramfs=none \
         --debian-installer false \
         --debootstrap-options="--include=apt-transport-https" \
-        --firmware-chroot false
-
+        --firmware-chroot false \
+        --parent-mirror-bootstrap $mirror \
+        --mirror-bootstrap $mirror \
+        --mirror-binary $mirror
+ 
 # Copy the customization
 cp -rf customization/* config/
 
