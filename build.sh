@@ -2,6 +2,7 @@
 
 export ARCH=armhf
 export mirror="https://deb.debian.org/debian"
+export securitymirror="https://deb.debian.org/debian-security"
 
 # configure the live-build
 lb config \
@@ -33,7 +34,9 @@ lb config \
         --firmware-chroot false \
         --parent-mirror-bootstrap $mirror \
         --mirror-bootstrap $mirror \
-        --mirror-binary $mirror
+        --mirror-binary $mirror \
+        --mirror-chroot-security $securitymirror \
+        --mirror-binary-security $securitymirror
  
 # Copy the customization
 cp -rf customization/* config/
