@@ -9,7 +9,7 @@ mkdir build; cd build
 # configure the live-build
 lb config \
         --mode debian \
-        --distribution stretch \
+        --distribution buster \
         --binary-images none \
         --memtest none \
         --source false \
@@ -28,7 +28,7 @@ lb config \
         --system normal \
         --zsync false \
         --linux-packages=none \
-        --backports true \
+        --backports false \
         --apt-recommends false \
         --initramfs=none \
         --debian-installer false \
