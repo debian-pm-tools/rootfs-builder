@@ -32,7 +32,6 @@ lb config \
         --apt-recommends false \
         --initramfs=none \
         --debian-installer false \
-        --debootstrap-options="--include=apt-transport-https" \
         --firmware-chroot false \
         --parent-mirror-bootstrap $mirror \
         --mirror-bootstrap $mirror \
