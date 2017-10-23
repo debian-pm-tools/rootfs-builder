@@ -1,5 +1,18 @@
 #!/bin/sh
 
+cd repo
+
+for debfile in ../packages/*.deb; do
+	reprepro includedeb buster $debfile
+done
+
+for dscfile in ../packages/*.dsc; do
+	reprepro includedsc buster $dscfile
+done
+
+sudo busybox httpd
+cd ..
+
 export ARCH=armhf
 export mirror="https://deb.debian.org/debian"
 export securitymirror="https://deb.debian.org/debian-security"
