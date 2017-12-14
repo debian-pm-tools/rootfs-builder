@@ -1,1 +1,2 @@
-deb http://debian-pm.github.io/halium-debian-repo buster main
+deb https://debian-pm.github.io/halium-debian-repo buster main
+deb http://jbbgameich.tk/mirrors/debian-pm/ buster main

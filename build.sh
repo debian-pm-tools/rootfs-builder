@@ -26,7 +26,7 @@ lb config \
         --binary-images none \
         --memtest none \
         --source false \
-        --archive-areas "main contrib non-free" \
+        --archive-areas "main" \
         --apt-source-archives true \
         --architectures armhf \
         --bootstrap-qemu-arch armhf \
@@ -36,7 +36,7 @@ lb config \
         --initramfs-compression lzma \
         --initsystem systemd \
         --chroot-filesystem plain \
-        --apt-options "--yes -o Debug::pkgProblemResolver=true" \
+        --apt-options "--yes -o Debug::pkgProblemResolver=true --no-install-recommends" \
         --compression gzip \
         --system normal \
         --zsync false \
