@@ -37,6 +37,7 @@ lb config \
         --initsystem systemd \
         --chroot-filesystem plain \
         --apt-options "--yes -o Debug::pkgProblemResolver=true --no-install-recommends" \
+        --debootstrap-options='--include="gnupg,ca-certificates"' \
         --compression gzip \
         --system normal \
         --zsync false \
