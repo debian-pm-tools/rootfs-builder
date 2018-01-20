@@ -3,7 +3,7 @@ sudo: required
 install:
     - sudo bash -c "echo deb http://archive.ubuntu.com/ubuntu artful main >> /etc/apt/sources.list"
     - sudo apt-get update
-    - sudo apt-get install live-build reprepro busybox -y
+    - sudo apt-get install qemu-user-static live-build reprepro busybox -y
 
 script:
     - sudo bash build.sh
