@@ -1,12 +1,13 @@
 sudo: required
 
-install:
-    - sudo bash -c "echo deb http://archive.ubuntu.com/ubuntu artful main >> /etc/apt/sources.list"
-    - sudo apt-get update
-    - sudo apt-get install qemu-user-static live-build reprepro busybox -y
+services:
+  - docker
+
+before_install:
+  - docker pull debian:sid-slim
 
 script:
-    - sudo bash build.sh
+  - docker run -v $PWD:/mnt/rootfs-builder debian:sid-slim /bin/bash -c "sudo apt update; sudo apt install qemu-user-static live-build reprepro busybox -y; cd /mnt/rootfs-builder; sudo bash build.sh"
 
 after_success:
     - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
