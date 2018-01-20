@@ -7,7 +7,7 @@ before_install:
   - docker pull debian:sid-slim
 
 script:
-  - docker run -v $PWD:/mnt/rootfs-builder debian:sid-slim /bin/bash -c "apt update; apt install qemu-user-static live-build reprepro busybox -y; cd /mnt/rootfs-builder; bash build.sh"
+  - docker run -v $PWD:/mnt/rootfs-builder debian:sid-slim /bin/bash -c "apt update; apt install qemu-user-static live-build reprepro busybox wget -y; wget https://github.com/JBBgameich/live-build/releases/download/20171208/live-build_20171208_all.deb; sudo dpkg -i live-build*.deb; cd /mnt/rootfs-builder; bash build.sh"
 
 after_success:
     - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
