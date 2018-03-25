@@ -1,18 +1,5 @@
 #!/bin/sh
 
-cd repo
-
-for debfile in ../packages/*.deb; do
-	reprepro includedeb buster $debfile
-done
-
-for dscfile in ../packages/*.dsc; do
-	reprepro includedsc buster $dscfile
-done
-
-sudo busybox httpd
-cd ..
-
 export ARCH=armhf
 export mirror="https://deb.debian.org/debian"
 export securitymirror="https://deb.debian.org/debian-security"
@@ -29,8 +16,6 @@ lb config \
         --archive-areas "main" \
         --apt-source-archives true \
         --architectures armhf \
-        --bootstrap-qemu-arch armhf \
-        --bootstrap-qemu-static /usr/bin/qemu-arm-static \
         --linux-flavours none \
         --bootloader none \
         --initramfs-compression lzma \
