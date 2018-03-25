@@ -12,8 +12,6 @@ kwin-wayland-backend-drm
 plasma-phone-components
 plasma-phone-settings
 plasma-settings
-qml-module-org-kde-activities
-qml-module-org-kde-people
 kinfocenter
 kirigami-gallery
 kaidan
