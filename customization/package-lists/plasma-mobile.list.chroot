@@ -22,5 +22,8 @@ qtvirtualkeyboard-plugin
 plasma-nm
 telegram-desktop
 libqmi-utils
+rmtfs
+qrtr
+qml-module-ofono
 rpmsgexport
 telepathy-ofono-ril-mc-plugin
