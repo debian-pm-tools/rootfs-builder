@@ -21,3 +21,6 @@ plasma-discover
 qtvirtualkeyboard-plugin
 plasma-nm
 telegram-desktop
+libqmi-utils
+rpmsgexport
+telepathy-ofono-ril-mc-plugin
