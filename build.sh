@@ -1,23 +1,11 @@
 #!/bin/sh
 
-cd repo
-
-for debfile in ../packages/*.deb; do
-	reprepro includedeb buster $debfile
-done
-
-for dscfile in ../packages/*.dsc; do
-	reprepro includedsc buster $dscfile
-done
-
-sudo busybox httpd
-cd ..
-
 export ARCH=armhf
-export mirror="https://deb.debian.org/debian"
-export securitymirror="https://deb.debian.org/debian-security"
+export mirror="http://ftp.de.debian.org/debian"
+export securitymirror="http://security.debian.org/debian"
 
-mkdir build; cd build
+mkdir build
+cd build
 
 # configure the live-build
 lb config \
@@ -43,6 +31,7 @@ lb config \
         --zsync false \
         --linux-packages=none \
         --backports false \
+	--security false \
         --apt-recommends false \
         --initramfs=none \
         --debian-installer false \
@@ -52,7 +41,7 @@ lb config \
         --mirror-binary $mirror \
         --mirror-chroot-security $securitymirror \
         --mirror-binary-security $securitymirror
- 
+
 # Copy the customization
 cp -rf ../customization/* config/
 
@@ -62,6 +51,6 @@ lb build
 # live-build itself is meh, it creates the tarball with directory structure of binary/boot/filesystem.dir
 # so we pass --binary-images none to lb config and create tarball on our own
 if [ -e "binary/boot/filesystem.dir" ]; then
-        (cd "binary/boot/filesystem.dir/" && tar -c *) | gzip -9 --rsyncable > "../halium.rootfs.tar.gz"
+        (cd "binary/boot/filesystem.dir/" && tar -c *) | gzip -9 --rsyncable >"../halium.rootfs.tar.gz"
         chmod 644 "../halium.rootfs.tar.gz"
 fi

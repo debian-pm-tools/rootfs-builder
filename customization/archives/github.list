@@ -1,2 +1,1 @@
 deb https://debian-pm-tools.github.io/apt-repo buster main
-deb http://jbbgameich.tk/mirrors/debian-pm/ buster main
