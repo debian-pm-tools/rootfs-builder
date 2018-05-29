@@ -1,15 +1,14 @@
 #!/bin/sh -x
 
-#systemctl enable system.mount
-#systemctl enable android-mount.service
+systemctl enable system.mount
+systemctl enable android-mount.service
 
 #systemctl enable adbd.service
-#systemctl enable usb-tethering
-#systemctl enable dropbear
+systemctl enable usb-tethering
+systemctl enable dropbear
 
-#systemctl enable lxc@android.service
+systemctl enable lxc@android.service
 
-systemctl enable getty@ttyGS0.service
-systemctl enable kwinwrapper.service
+systemctl enable timekeep.service
 
 systemctl set-default graphical.target

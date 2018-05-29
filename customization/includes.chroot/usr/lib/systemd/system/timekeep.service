@@ -1,0 +1,10 @@
+[Unit]
+Description=timekeep restore-store service
+After=lxc@android.service
+
+[Service]
+Type=oneshot
+ExecStart=/system/bin/timekeep restore
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+#!/bin/sh -eu
+
+echo "adjusting ownership of /var/log" >&2
+chown root:syslog /var/log
+ls -ln /var | grep log >&2

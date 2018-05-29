@@ -8,7 +8,7 @@ strace
 vim
 hybris-usb
 kwin-wayland
-kwin-wayland-backend-drm
+kwin-wayland-backend-hwcomposer
 plasma-phone-components
 plasma-phone-settings
 plasma-settings
@@ -21,9 +21,5 @@ plasma-discover
 qtvirtualkeyboard-plugin
 plasma-nm
 telegram-desktop
-libqmi-utils
-rmtfs
-qrtr
 qml-module-ofono
-rpmsgexport
-telepathy-ofono-ril-mc-plugin
+simplelogin
